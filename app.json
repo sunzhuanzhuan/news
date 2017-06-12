@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/MsgList/MsgList",
     "pages/AddMsg/AddMsg",
+    "pages/MsgList/MsgList",
     "pages/index/index",
     "pages/fact/fact",
     "pages/figure/figure",
