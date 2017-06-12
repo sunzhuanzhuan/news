@@ -5,14 +5,14 @@
   <textarea class="content" placeholder="话题内容" name="content"/>
   <view class="upload-wrap">
     
-    <view class="img-item">
-      <icon type="clear" />
-      <image src="../../images/user.jpg"></image>
+    <view class="img-item" wx:for="{{uploadImg }}">
+      <icon type="clear" data-id="{{ item }}" bindtap="deleteImg"/>
+      <image src="{{ item }}"></image>
     </view>
 
-    <view class="img-add">+</view>
+    <view class="img-add" bindtap="addImg">+</view>
   </view>
 </view>
 <button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" class="submit"  formType="submit"> 发布 </button>
-        </form>
+</form>

@@ -16,7 +16,6 @@
     </view>
   </view>
 
-
   <view class="item" wx:for="{{ list }}">
     <view bindtap="articleEvent" data-id="{{ item.id }}" >
       <view class="user-bar">
@@ -29,7 +28,7 @@
       <view class="title">{{ item.title }}</view>
       <view class="content">{{ item.content }}</view>
       <view class="imgList">
-        <view class="imgItem" wx:for="{{ item.imgSrc[0] }}">
+        <view class="imgItem" wx:for="{{ item.imgSrc }}">
           <image src="{{ item.url }}"></image>
         </view>
       </view>
