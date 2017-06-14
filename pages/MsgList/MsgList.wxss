@@ -26,3 +26,5 @@ page{ background: #eee}
 .item-handle{ display: flex; flex-direction: row-reverse }
 .icon image{ width: 30rpx; height: 30rpx; margin-right: 10rpx; margin-left: 20rpx}
 .icon text{ color: #999}
+
+.no-more{ text-align: center; padding: 20rpx; color: #999;}

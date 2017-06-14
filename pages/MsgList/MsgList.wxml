@@ -10,7 +10,7 @@
       <view class="title-text">
         <view class="title-title">爆料</view>
         <view class="title-content">
-          话题 <text class="red">{{ list.length }}</text>回复 <text class="red">0</text>
+          话题 <text class="red">{{ length }}</text>回复 <text class="red">0</text>
         </view>
       </view>
     </view>
@@ -35,8 +35,9 @@
     </view>
     <view class="item-handle">
       <view class="icon" bindtap="likeEvent" data-index="{{index}}"><image src="{{ item.likeImg }}"></image><text>{{ item.like.length }}</text></view>
-      <view class="icon"><image src="../../images/msg.png"></image><text>{{ item.msg.length }}</text></view>
+      <view class="icon" bindtap="replyEvent" data-id="{{ item.id }}"><image src="../../images/msg.png"></image><text>{{ item.msg.length }}</text></view>
     </view>
   </view>
 
+  <view class="no-more">没有更多了</view>
 </view>

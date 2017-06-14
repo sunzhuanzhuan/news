@@ -5,7 +5,7 @@ Bmob.initialize("2a65ba7f76d377d0c9d7f6dca12eaf38", "d3bc995f5d19c76247876946b8c
 var startY=0;
 var msg = Bmob.Object.extend("msg");
 var query = new Bmob.Query(msg);
-
+var iNow=1;
 Page({
   /**
    * 页面的初始数据
@@ -13,22 +13,46 @@ Page({
   data: {
     animationData: {},
     list:[],
-    openid:''
+    openid:'',
+    length:0
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    var newOpenid = wx.getStorageSync('openid')
-    var queryData=[];
-    var _this=this
+  onShow() {
+    wx.showLoading({
+      title: '请求中',
+    })
+    let newOpenid = wx.getStorageSync('openid');
+    let _this=this;
     this.setData({
       openid: newOpenid
     })
+
     // 查询所有数据
-    query.limit(10);
     query.find({
-      success: function (results) {
+      success(results) {
+        _this.setData({
+          length: results.length
+        })
+      },
+    });
+
+    this.getData(iNow);
+    wx.hideLoading()
+  },
+  //下拉加载
+  onReachBottom(){
+    iNow++
+    this.getData(iNow);
+  },
+  getData(iNow){
+    let queryData = [];
+    let _this = this;
+    let newOpenid = this.data.openid
+    query.limit(iNow * 3);
+    query.find({
+      success(results) {
         // 循环处理查询到的数据
         for (let i = 0; i < results.length; i++) {
           let object = results[i];
@@ -41,25 +65,24 @@ Page({
           res['author'] = object.get('author');
 
           res['date'] = object.createdAt;
-          if (object.get('like') == undefined || object.get('like').length == 0){
+          if (object.get('like') == undefined || object.get('like').length == 0) {
             res['like'] = [];
             res['likeImg'] = "../../images/like2.png";
-          }else{
+          } else {
             res['like'] = object.get('like');
-            for (let i = 0; i < res['like'].length; i++ ){
-              if (newOpenid == object.get('like')[i]){
+            for (let i = 0; i < res['like'].length; i++) {
+              if (newOpenid == object.get('like')[i]) {
                 res['likeImg'] = "../../images/like1.png";
-              }else{
+              } else {
                 res['likeImg'] = "../../images/like2.png";
               }
             }
           }
-          if (object.get('msg') == undefined || object.get('msg').length == 0){
+          if (object.get('msg') == undefined || object.get('msg').length == 0) {
             res['msg'] = [];
-          }else{
+          } else {
             res['msg'] = object.get('msg');
           }
-          
 
           queryData.push(res);
         }
@@ -67,8 +90,7 @@ Page({
           list: queryData
         })
       },
-      error: function (error) {
-
+      error(error) {
         console.log("查询失败: " + error.code + " " + error.message);
       }
     });
@@ -111,9 +133,19 @@ Page({
       list[index].like.splice(subscript,1);
       likeArr.splice(subscript, 1)
       list[index].likeImg = "../../images/like2.png";
+      wx.showToast({
+        title: '点赞取消',
+        icon: 'success',
+        duration: 1000
+      })
     }else{
       list[index].like.push(openid);
       list[index].likeImg = "../../images/like1.png";
+      wx.showToast({
+        title: '点赞成功',
+        icon: 'success',
+        duration: 1000
+      })
     }
     query.get(this.data.list[index].id, {
       success: function (result) {
@@ -133,6 +165,12 @@ Page({
     let data = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../MsgArticle/MsgArticle?id=' + data
+    })
+  },
+  replyEvent(e){
+    let data = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../replyMsg/replyMsg?id=' + data
     })
   }
 })
