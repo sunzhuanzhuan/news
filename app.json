@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/MsgList/MsgList",
     "pages/replyMsg/replyMsg",
     "pages/MsgArticle/MsgArticle",
     "pages/AddMsg/AddMsg",
-    "pages/index/index",
     "pages/fact/fact",
     "pages/figure/figure",
     "pages/article/article",

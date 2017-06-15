@@ -23,13 +23,9 @@ Page({
     wx.showLoading({
       title: '请求中',
     })
-    let newOpenid = wx.getStorageSync('openid');
-    let _this=this;
-    this.setData({
-      openid: newOpenid
-    })
-
     // 查询所有数据
+    let msg = Bmob.Object.extend("msg");
+    let query = new Bmob.Query(msg);
     query.find({
       success(results) {
         _this.setData({
@@ -37,6 +33,13 @@ Page({
         })
       },
     });
+
+    let newOpenid = wx.getStorageSync('openid');
+    let _this=this;
+    this.setData({
+      openid: newOpenid
+    })
+
 
     this.getData(iNow);
     wx.hideLoading()
