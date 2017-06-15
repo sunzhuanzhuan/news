@@ -25,7 +25,7 @@
           <image src="{{item}}"></image>
         </block>
      </view>
-     <text class="item-like-text">{{ data.like }}人赞了</text>
+     <text class="item-like-text">{{ data.like.length }}人赞了</text>
     </view>
   </view>
 </view>
@@ -51,3 +51,11 @@
       <view class="icon" bindtap="replyEvent" data-index="{{index}}"><image src="../../images/msg.png"></image><text>回复</text></view>
     </view>
 </view>
+
+<view class="no-more">没有更多了</view>
+
+<view class="footer">
+  <view class="footer-reply" bindtap="replyEvent" ><image src="../../images/msg.png"></image><text>我来说两句</text></view>
+  <view class="footer-like" bindtap="AlikeEvent"><image src="{{ data.likeImg }}"></image></view>
+</view>
+

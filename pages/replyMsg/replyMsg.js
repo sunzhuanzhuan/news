@@ -31,7 +31,7 @@ Page({
 
     let objectId = options.id;
     let replayName;
-    if ( options.replayName == undefined ){
+    if (options.replayName == undefined || options.replayName == "" ){
       replayName = "";
     }else{
       replayName ='@'+options.replayName;
