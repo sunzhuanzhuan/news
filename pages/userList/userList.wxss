@@ -1,6 +1,4 @@
-/* pages/MsgList/MsgList.wxss */
-.AddMsg{ width: 120rpx; height: 120rpx; background: #F00; text-align: center; line-height: 110rpx; border-radius: 100%; font-size: 80rpx; color: #FFF; box-shadow: 0 10rpx 10rpx rgba(0, 0, 0, 0.6);}
-
+/* pages/userList/userList.wxss */
 page{ background: #eee}
 .item{ background: #FFF; padding: 40rpx; margin-top: 20rpx}
 .user-bar{ display: flex;}
@@ -30,3 +28,5 @@ page{ background: #eee}
 .no-more{ text-align: center; padding: 20rpx; color: #999;}
 
 .user image{ width: 80rpx; height: 80rpx;}
+
+.tips{ text-align: center; font-size: 36rpx; line-height: 60rpx;}

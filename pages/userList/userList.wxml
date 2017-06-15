@@ -1,25 +1,7 @@
-<!--pages/MsgList/MsgList.wxml-->
-<navigator url="../AddMsg/AddMsg" class="AddMsg" style="position:fixed; bottom:30rpx; right:30rpx;" animation="{{animationData}}">+</navigator>
-
-<view class="page" bindtouchmove="pageMove" bindtouchstart="pageStat">
-  <view class="top-bar">
-    <view class="title-bar">
-      <view class="title-img">
-        <image src="../../images/user.jpg"></image>
-      </view>
-      <view class="title-text">
-        <view class="title-title">爆料</view>
-        <view class="title-content">
-          话题 <text class="red">{{ length }}</text>
-        </view>
-      </view>
-      <navigator url="../userList/userList" class="user">
-          <image src="../../images/user.png"></image>
-      </navigator>
-    </view>
-  </view>
-
-  <view class="item" wx:for="{{ list }}">
+<!--pages/userList/userList.wxml-->
+<view class="page">
+<view class="tips">共发布{{ list.length }}篇帖子</view>
+<view class="item" wx:for="{{ list }}">
     <view bindtap="articleEvent" data-id="{{ item.id }}" >
       <view class="user-bar">
         <view class="user-pic"><image src="{{ item.userPic }}"></image></view>
@@ -43,4 +25,4 @@
   </view>
 
   <view class="no-more">没有更多了</view>
-</view>
+  </view>

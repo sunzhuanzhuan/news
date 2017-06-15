@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/MsgList/MsgList",
+    "pages/userList/userList",
     "pages/replyMsg/replyMsg",
     "pages/MsgArticle/MsgArticle",
     "pages/AddMsg/AddMsg",
