@@ -12,13 +12,13 @@ page{ background: #eee}
 .title{ margin:15rpx 0; font-size: 32rpx;}
 .content{ font-size: 28rpx; color: #666; margin-bottom: 20rpx }
 .imgList{ display: flex; margin: 0 -10rpx }
-.imgItem {flex: 1; margin: 0 10rpx}
+.imgItem {width: 33.333%; padding: 0 10rpx}
 .imgItem image{ width: 100%; height: 300rpx }
 
 .title-bar{ display: flex; background: #FFF; padding: 30rpx;}
 .title-img{ width: 120rpx; height: 120rpx;}
 .title-img image{ width: 100%; height: 100%; border-radius: 5px; display: block}
-.title-text{ flex: 1; padding-left:20rpx; }
+.title-text{ flex: 1; padding-left:20rpx;}
 .title-title{ margin: 10rpx 0;}
 .title-content{ font-size: 28rpx; color: #666}
 .red{ color: #F00; margin-right: 30rpx;}

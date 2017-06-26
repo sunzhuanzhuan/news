@@ -9,18 +9,6 @@
     </block>
   </swiper>
 
-  <view class="flex">
-    <view class="menu">
-      <image src="http://img.weiye.me/zcimgdir/album/file_58fead38b5be7.png" mode="widthFix"></image>
-    </view>
-    <view class="menu">
-      <image src="http://img.weiye.me/zcimgdir/album/file_58fead388c8a1.png" mode="widthFix"></image>
-    </view>
-    <view class="menu">
-      <image src="http://img.weiye.me/zcimgdir/album/file_58fead38c1e30.png" mode="widthFix"></image>
-    </view>
-  </view>
-
   <view class="p-md">
     <view class="list-item" wx:for="{{ list1 }}" data-id="{{ item.id }}" bindtap="hrefLink">
       <block wx:if="{{ index < 2 }}">

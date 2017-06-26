@@ -37,6 +37,7 @@ u.find({
         default:
           break;
       }
+      console.log(res)
     }
   },
   error(error) {
