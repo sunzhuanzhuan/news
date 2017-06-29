@@ -1,6 +1,5 @@
 // pages/AddMsg/AddMsg.js
 var Bmob = require('../../utils/bmob.js')
-Bmob.initialize("2a65ba7f76d377d0c9d7f6dca12eaf38", "d3bc995f5d19c76247876946b8cabce8");
 
 var Diary = Bmob.Object.extend("_User");
 var query = new Bmob.Query(Diary);

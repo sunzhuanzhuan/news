@@ -2,7 +2,6 @@
 //获取应用实例
 var app = getApp();
 var Bmob = require('../../utils/bmob.js')
-Bmob.initialize("2a65ba7f76d377d0c9d7f6dca12eaf38", "d3bc995f5d19c76247876946b8cabce8");
 
 var Article = Bmob.Object.extend("article");
 var u = new Bmob.Query(Article);
@@ -11,7 +10,7 @@ var u = new Bmob.Query(Article);
 
 Page({
   data: {},
-  onLoad(){
+  onLoad:function(){
     var _this = this
     var cloudData = [];
     u.find({
